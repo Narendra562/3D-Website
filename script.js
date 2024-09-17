@@ -57,7 +57,7 @@ function locomotive() {
        ./CYBERFICTION-IMAGES/male0007.png
        ./CYBERFICTION-IMAGES/male0008.png
        ./CYBERFICTION-IMAGES/male0009.png
-       ./CYBERFICTION-IMAGE/male0010.png
+       ./CYBERFICTION-IMAGES/male0010.png
        ./CYBERFICTION-IMAGES/male0011.png
        ./CYBERFICTION-IMAGES/male0012.png
        ./CYBERFICTION-IMAGES/male0013.png
@@ -443,3 +443,21 @@ function locomotive() {
       scroller:`#main`
     }
   })
+
+
+    const toggleButton = document.getElementById('darkModeToggle');
+
+    const currentMode = localStorage.getItem('mode');
+    if (currentMode === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    toggleButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('mode', 'dark');
+        } else {
+            localStorage.setItem('mode', 'light');
+        }
+    });
